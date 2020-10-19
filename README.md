@@ -99,5 +99,9 @@ bool、int、float、str、datatime64（日期时间）、timedelta64（时间�
   `print(c) # 2020-07-09`<br>
   `print(d) # 2020-07-10`<br>
   `print(e) # 2020-07-13`<br><br>
+  补充：<br>
+更新一位师傅的原话(问题和解答,师傅很厉害,自己解决了)：<br>
+Q:那为什么我一个backward参数还控制不了方向呢？需要把offsets改成-1才是找之前的工作日<br>
+A:“backward”和“forward”不是控制方向，是改变基准日期，前移一天或者后移一天。<br><br>
 
 * 数组创建
