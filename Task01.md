@@ -1,4 +1,4 @@
-### task01-1:
+### task01-1:常量 & 数据类型 & 时间日期
 * 常量<br>
 NAN、INF、pi、e
 
@@ -99,3 +99,88 @@ bool、int、float、str、datatime64（日期时间）、timedelta64（时间�
 更新一位师傅的原话(问题和解答,师傅很厉害,自己解决了)：<br>
 Q:那为什么我一个backward参数还控制不了方向呢？需要把offsets改成-1才是找之前的工作日<br>
 A:“backward”和“forward”不是控制方向，是改变基准日期，前移一天或者后移一天。<br><br>
+
+### task01-2:数组
+#### 关于numpy的数组，numpy 提供的重要的数据结构是 ndarray ，它是 python 中 list 的扩展。
+
+* 创建数组<br>
+  * 通过array()函数创建<br>
+  `def array(p_object, dtype=None, copy=True, order='K', subok=False, ndmin=0): `<br>
+  一维数组：`a = np.array([0, 1, 2, 3, 4])`，内层的方括号`[]`可换成圆括号`()`<br><br>
+  二维数组：`b = np.array([[11, 12, 13, 14, 15],[16, 17, 18, 19, 20]])`，两个一位数组之间用逗号隔开。<br><br>
+  其他维数也可创建。<br><br>
+  * 通过asarray()函数进行创建<br>
+  `def asarray(a, dtype=None, order=None):`<br>
+        `return array(a, dtype, copy=False, order=order)`<br><br>
+  可通过dtype指定数据类型。<br><br>
+  `x = [[1, 1, 1], [1, 1, 1], [1, 1, 1]] `<br>
+  `print(x,type(x)) # [[1, 1, 1], [1, 1, 2], [1, 1, 1]] <class 'list'>`<br>
+  `y = np.asarray(x)`<br>
+  `print(z,type(z))`<br>
+  `# [[1 1 1] `<br>
+  `#  [1 1 1] `<br>
+  `#  [1 1 1]] <class 'numpy.ndarray'>`<br><br>
+  * 通过fromfunction()函数进行创建(给函数绘图时可以用)<br>
+  举个有意思的栗子：<br>
+  `x = np.fromfunction(lambda i, j: i == j, (3, 3), dtype=int)`<br>
+  `print(x)`<br>
+  `# [[ True False False] `<br>
+  `#  [False  True False] `<br>
+  `#  [False False  True]] `<br><br>
+  也可以自己def一个函数做运算生成array。<br><br>
+  * 创建特别的数组(有的地方和MATLAB很像，我先学的MATLAB，所以这样说)<br>
+    * 0数组：zeros()和zeros_like()<br><br>
+    zeros()的参数是数组规格，如：<br>
+    `x = np.zeros([2, 3]) `<br>
+    `print(x) # [[0. 0. 0.] `<br>
+    `#  [0. 0. 0.]] `<br><br>
+    zeros_like()的参数是另一个数组，表示要生成一个形如参数的数组，如：<br>
+    `x = np.array([[1, 2, 3], [4, 5, 6]])`<br>
+    `y = np.zeros_like(x) `<br>
+    `print(y) `<br>
+    `# [[0 0 0] `<br>
+    `#  [0 0 0]] `<br><br>
+    * 1数组：ones()和ones_like()<br><br>
+    同0数组，只是数组元素值全为1。<br><br>
+    * 空数组：empty()和empty_like()<br><br>
+    同0数组，只是数组元素值全为随机数。<br><br>
+    * 单位数组：eye()和identity()<br><br>
+    eye()：创建一个对角线上为1其他位置为0的数组，不一定是方形的。<br>
+    `x = np.eye(4)`<br>
+    `print(x) `<br>
+    `# [[1. 0.] `<br>
+    `#  [0. 1.]]`<br><br>
+    `y = np.eye(2, 3)`<br>
+    `print(y) `<br>
+    `# [[1. 0. 0.] `<br>
+    `#  [0. 1. 0.]]`<br><br>
+    identity()保证是方形的。<br><br>
+    * 对角数组<br><br>
+    可以从一个数组中提取对角线(得到列表)，也可以从列表构造一个对角数组(其他位置元素值为0)。<br>
+    有一个参数k，默认为0，表示对角线位置，1表示对角线上移一个单位，-1表示下移一个单位。可换成其他数字，数字绝对值表示步长，符号表示方向(跟我们的普遍认知是差不多哒~)。<br><br>
+    * 常数数组：full()和full_like()<br><br>
+    基本同0数组，在规格或数组后加一个常数参数即可，数组中的元素值都是这个常数。<br><br>
+  * 利用数值范围创建<br>
+  1. arange() 函数：返回给定间隔内的均匀间隔的值。 <br>
+  2. linspace() 函数：返回指定间隔内的等间隔数字。 <br>
+  3. logspace() 函数：返回数以对数刻度均匀分布。 默认以10为底，起点终点是指数部分的值，第三个参数是数组元素个数。<br>
+  4. numpy.random.rand() 返回一个由[0,1)内的随机数组成的数组。<br><br>
+  `x = np.logspace(0,5,10) `<br>
+  `print(x)`<br>
+  `# [1.00000000e+00 3.59381366e+00 1.29154967e+01 4.64158883e+01 1.66810054e+02 5.99484250e+02 2.15443469e+03 7.74263683e+03 2.78255940e+04 1.00000000e+05]`<br><br>
+  * 创建结构数组<br>
+    * 利用字典定义结构<br><br>
+    `personType = np.dtype({    `<br>
+    `'names': ['name', 'age', 'weight'],`<br>
+    `'formats': ['U30', 'i8', 'f8']})`<br><br>
+    `a = np.array([('Liming', 24, 63.9), ('Mike', 15, 67.), ('Jan', 34, 45.8)],dtype=personType) `<br><br>
+    可以使用字段名作为下标获取对应的值：<br>
+    `print(a['name']) `<br>
+    `# ['Liming' 'Mike' 'Jan'] `<br><br>
+* 数组的属性<br>
+  1. numpy.ndarray.ndim 用于返回数组的维数（轴的个数）也称为秩，一维数组的秩为 1，二维数组的秩为 2，以此类推。<br>
+  2. numpy.ndarray.shape 表示数组的维度，返回一个元组，这个元组的长度就是维度的数目，即 ndim 属性(秩)。<br>
+  3. numpy.ndarray.size 数组中所有元素的总量，相当于数组的 shape 中所有元素的乘积，例如矩阵的元素总量为行与列的乘积。<br>
+  4. numpy.ndarray.dtype ndarray 对象的元素类型。 5. numpy.ndarray.itemsize 以字节的形式返回数组中每一个元素的大小。<br><br>
+
+    
