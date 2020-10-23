@@ -4,3 +4,4 @@ datawhale十月组队学习:
 ps.记得`import numpy as np`噢<br><br><br>
 
 * [Task01：数据类型及数组创建](https://github.com/Butterice04/NumpyTeamLearn/blob/main/Task01.md)
+* [Task02：数据的切片与索引](https://github.com/Butterice04/NumpyTeamLearn/blob/main/task02.md)
