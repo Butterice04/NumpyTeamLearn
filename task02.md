@@ -47,7 +47,7 @@
     `# [[ 6  7  8  9 10]`<br>
     `#  [11 12 13 14 15]]`<br><br>
   搭配方式很多，还可以对列表做同样的操作进行对比，需实操体会，难以一一言传。<br>
-  一些练习写在[task02.ipynb]()里啦。<br><br>
+  一些练习写在[task02.ipynb](https://github.com/Butterice04/NumpyTeamLearn/blob/main/task02.ipynb)里啦。<br><br>
   * 一个函数，可以用axis指定行或列,axis=0表示以`indices`作为索引操作**行**取`a`的元素，axis=1表示操作**列**。<br>
   `numpy.take( a, indices, axis=None, out=None, mode='raise')`<br><br>
 
@@ -64,4 +64,4 @@
 #### 数组迭代
 一个优雅的遍历函数：<br>
 `numpy.apply_along_axis(func1d, axis, arr)`<br>
-举栗子在[task02.ipynb]()里啦
+举栗子在[task02.ipynb](https://github.com/Butterice04/NumpyTeamLearn/blob/main/task02.ipynb)里啦
