@@ -77,7 +77,7 @@ ary表示被拆分的数组，indice给出从原来的数组的什么位置进�
 *  按宽度水平切分numpy.hsplit(ary, indices_or_sections) <br><br>
 
 #### 数组平铺
-* numpy.tile(A, reps) tile是瓷砖的意思，顾名思义，这个函数就是把数组像瓷砖一样铺展开来。
+* numpy.tile(A, reps) tile是瓷砖的意思，顾名思义，这个函数就是把数组像瓷砖一样铺展开来。<br>
 将原矩阵横向复制<br>
 `x = np.array([[1, 2], [3, 4]])` <br>
 `print(x) `<br>
@@ -87,7 +87,7 @@ ary表示被拆分的数组，indice给出从原来的数组的什么位置进�
 `print(y) `<br>
 `# [[1 2 1 2 1 2] `<br>
 `#  [3 4 3 4 3 4]]`<br><br>
-np.tile(x, (**3，1**))就是纵向复制 <br>
+np.tile(x, (**3，1**))就是纵向复制 <br><br>
 *  numpy.repeat(a, repeats, axis=None)<br> 
 1. axis=0 ，沿着y轴复制，实际上增加了行数。<br> 
 2. axis=1 ，沿着x轴复制，实际上增加了列数。<br> 
@@ -95,12 +95,12 @@ np.tile(x, (**3，1**))就是纵向复制 <br>
 4. axis=None 时就会flatten当前矩阵，实际上就是变成了一个行向量。<br> 
 
 #### 添加、删除元素
-* 查找数组的唯一元素numpy.unique(ar, return_index=False, return_inverse=False,return_counts=False, axis=None)
-* 删除元素numpy.delete(arr,obj,axis=None)
+* 查找数组的唯一元素numpy.unique(ar, return_index=False, return_inverse=False,return_counts=False, axis=None)<br>
+* 删除元素numpy.delete(arr,obj,axis=None)<br>
 arr:输入数组<br> 
 obj:被移除的部分，整数或数组<br> 
 axis:指定轴，行/列，默认压平。<br> 
-* 插入元素numpy.insert(arr,obj,value,axis=None)
+* 插入元素numpy.insert(arr,obj,value,axis=None)<br>
 arr:目标数组<br> 
 obj:目标位置<br> 
 value:插入的数值<br> 
