@@ -7,3 +7,4 @@ ps.记得`import numpy as np`噢<br><br><br>
 * [Task02：数据的切片与索引](https://github.com/Butterice04/NumpyTeamLearn/blob/main/task02.md)
 * [Task03：数组操作](https://github.com/Butterice04/NumpyTeamLearn/blob/main/task03.md)
 * [Task04：数学函数及逻辑函数](https://github.com/Butterice04/NumpyTeamLearn/blob/main/task04.md)
+* [Task05：排序、搜索和计数](https://github.com/Butterice04/NumpyTeamLearn/blob/main/task05.md)
